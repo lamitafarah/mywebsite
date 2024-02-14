@@ -1,0 +1,159 @@
+#show-form{
+  font-family: Kanit;
+    z-index: 1000;
+    /* position: relative; */
+    background-color:transparent;
+    border: transparent;
+    top:15%;
+    left:15%;
+    font-size: 5vw;
+    transform: scaleY(1.5);
+    font-weight: 100;
+    background: linear-gradient(90deg, #ff0000,#ffff00,#ff00f3,#0033ff,#ff00c4,#ff0000);
+    background-size: 400%;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip:text;
+    animation: gradanimate 10s linear infinite;
+  }
+  
+  #contact-form {
+    
+    z-index: 1000;
+    /* display: none; */
+    /* position: relative; */
+   font-size: 1.5vw;
+    top:25%;
+    left:15%;
+  }
+  .first{
+    display: flex;
+    flex-direction: row;
+  }
+  #contact-form {
+    display: block;
+    z-index: 1000;
+  }
+    
+label{
+    color:white;
+    
+    margin-bottom: 0px;
+    /* vertical-align:text-bottom; */
+    padding: 0;
+    /* margin: 0; */
+    height: 0.5vw;
+
+  }
+  
+.second{
+  display: none;
+}
+input{
+background-color: transparent;
+border-width:0;
+height: 3vw;
+margin:0.5%; 
+font-size: 1.2vw;
+border-bottom-width: 1px;
+border-color: #f0f;
+/* padding: -10px; */
+color:white;
+vertical-align: baseline;
+
+
+}
+
+.next ,.back{
+  font-family: 'Arial', sans-serif; 
+  font-size: 2vw;
+color:#f0f;
+font-weight: 600;
+background-color: transparent;
+border: transparent;
+
+}
+.submit{
+  background-color: transparent;
+  border: 1px solid #f0f;
+  border-radius: 30px;
+  color: pink;
+  padding: 0.5vw 1vw; /* Adjust padding as needed */
+  cursor: pointer; 
+
+}
+.third{
+  display: none;
+  left:1vw;
+}
+textarea{
+  overflow: hidden;
+  font-family: Kanit;
+  color:white;
+  background-color: transparent;
+border-width:0;
+margin:1%; 
+font-size: 1.2vw;
+height:2vw;
+
+border-bottom-width: 1px;
+border-color: #f0f;
+
+width:50vw;
+}
+
+.social{
+  
+  position: relative;
+  /* display: flex;
+  width:15vw;
+  justify-content: space-between; */
+  top:45%;
+  left:20%;
+  z-index: 1000;
+}
+.social i {
+  
+    position: relative;
+    z-index: 1000;
+    font-size: 2vw;
+    color: #ffffff; /* LinkedIn blue color */
+    margin-right:3vw;
+    /* animation: colorChange 5s infinite; Change color every 5 seconds, infinitely */
+  }
+  
+  
+  
+  .email-address, .linkedin {
+    font-family: Kanit;
+    z-index: 1000;
+    font-size: 1.3vw;
+    font-weight:200 ;
+    /* display: inline-block; */
+    vertical-align: baseline;
+    margin-right: 3vw;
+    display: none;
+    animation: slideIn 0.5s ease-in-out forwards;
+  
+   
+  }
+  @keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px); /* Start off the screen to the left */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0); /* Move to its natural position */
+    }}
+
+    
+    .social i:not(:first-child):hover .email-address {
+      display:  inline-block;
+    }
+    .social i:first-child:hover .linkedin {
+      display:  inline-block;
+    }
+    .social i:first-child:hover + i:not(:first-child) {
+      animation: slideIn 0.5s ease-in-out forwards;
+    }

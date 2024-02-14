@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino project</title>
+    <!-- <link rel="stylesheet" href="prjstyle.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/9009427533.js" crossorigin="anonymous"></script>
+</head>
+<style>
+body{
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Kanit';
+    /* margin-top: -50px; */
+}
+
+.item{
+    position: absolute;
+    height: 80%;
+    width: 70%;
+    height: 100%;
+    /* font-size: 20px;
+    margin-bottom: 20px; */
+    /* transition: left 0.5s, opacity 0.5s, width 0.5s; */
+}
+.item .introduce .title{
+    font-size: 3vw;
+    font-weight: 500;
+}
+.item .introduce .topic{
+    font-size: 2vw;
+    font-weight: 400;
+  
+}
+.item .introduce .des{
+    font-size: 1vw;
+    color: black;
+}
+
+.item .introduce{
+    opacity: 1;
+    pointer-events: auto;
+    width: 40%;
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform:  translateY(-50%);
+    transition: opacity 0.5s;
+}
+#img1{
+    width: 50%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    /* transform: translateY(-50%); */
+    box-shadow:
+    2em 4em 6em -2em rgba(0,0,0,.5),
+    1em 2em 3.5em -2.5em rgba(0,0,0, 0.884);
+    transform:
+    translateY(-50%)
+    perspective(800px)
+    rotateY(-15deg);
+    z-index:10;
+}
+#img1:hover{
+    transform:
+    translateY(-50%)
+    perspective(800px)
+    rotateY(-8deg);
+    transition: 0.3s;
+}
+#img2{
+    width: 40%;
+    position: absolute;
+    right: -30%;
+    top: 50%;
+    /* transform: translateY(-50%); */
+    box-shadow:
+    2em 4em 6em -2em rgba(0,0,0,.5),
+    1em 2em 3.5em -2.5em rgba(0,0,0, 0.884);
+    transform:
+    translateY(-50%)
+    perspective(800px)
+    rotateY(-15deg);
+    z-index:0;
+}
+#img2:hover{
+    width:50%;
+    z-index: 20;
+    transform:
+    translateY(-50%)
+    perspective(800px)
+     rotateY(-8deg);
+    transition: 0.5s;
+}
+
+.item .git button{
+   font-family: Kanit;
+   
+   background-color: transparent;
+   margin-top: 0.5vw;
+   letter-spacing: 0.8vw;
+   font-weight: 500;
+   border: 1px solid #f0f;
+   border-radius: 30px;
+   color: black;
+   padding: 0.5vw 0.5vw; /* Adjust padding as needed */
+   padding-left: 1vw;
+   cursor: pointer; 
+}
+.item .git button:hover{
+    border-width: 2px;   
+}
+#goback{
+    width: 3vw;
+    height: 3vw;
+    font-size: 2vw;
+    background-color: transparent;
+    font-family: monospace;   
+    border: none;
+    position:absolute;
+    top: 5%;
+    left: 90%;
+}
+#goback:hover{
+color :#f0f;
+}
+
+</style>
+<body>
+    <button id="goback" aria-label="Go back to the portfolio page"><i class="fa-solid fa-x"></i></button>
+    
+            <div class="item">
+                <img id="img1" src="prjimages/heartbeat.png" alt="Cube engraved with letters from multiple languages, illuminated in white, with a cardboard model of a person in the background">
+                <img id="img2" src="prjimages/model.jpg" alt='Cube engraved with letters from multiple languages, illuminated in red'>
+       
+
+                <div class="introduce">
+                    <div class="title">Arduino Project</div>
+                    <div class="topic">Heartbeat of Belonging</div>
+                    <div class="des">
+                       
+                        The installation consists of letters from the alphabet that are linked to a sensor capable of detecting the user's heart rate. As the user's heart rate increases, the installation responds by illuminating, visually mirroring the fluctuating rhythm of the heartbeat.<br> The rhythm of the heartbeat is used as a metaphor for the rhythm of life itself. In a similar way, the letters of the alphabet can be seen as the heartbeat of a country because it is the foundation of its language and communication, which are the lifeblood of a nation's culture, identity, and history. <br> Just as the heartbeat is crucial for sustaining the physical body, the alphabet is crucial for sustaining language and communication, an essential aspect of the vitality and spirit of a culture.<br> By intertwining the metaphorical rhythm of the heartbeat with the foundational elements of language and culture, this installation offers a unique and engaging experience that encourages users to reflect on their cultural roots and the importance of language in shaping their sense of identity and belonging.
+
+                    </div>
+
+                   
+                    <div class="git">                     
+                        <button onclick="redirectTo('https://git.arts.ac.uk/22028565/physicalcomputing')">GIT</button>
+                    </div>
+                   
+
+                </div>
+ 
+
+<script>
+    document.getElementById('img2').addEventListener('mouseover', function() {
+        document.getElementById('img1').style.width = '40%';
+        document.getElementById('img1').style.transition= '0.5s';
+    });
+
+    document.getElementById('img2').addEventListener('mouseout', function() {
+        document.getElementById('img1').style.width = '50%';
+        // document.getElementById('img1').style.zIndex = 'initial';
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+    const redirectButton = document.getElementById('goback');
+   
+    redirectButton.addEventListener('click', function () {
+      // Specify the desired href
+      const targetHref = 'index.html#projects';
+  
+      // Redirect to the specified href
+      window.location.href = targetHref;
+    });
+  });
+  function redirectTo(url) {
+  window.open(url, '_blank');
+  }
+  
+</script>
+</body>
+</html>

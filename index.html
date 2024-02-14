@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lamita Farah</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mainP.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="about.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://kit.fontawesome.com/9009427533.js" crossorigin="anonymous"></script>
+                
+   
+  </head>
+<body>
+
+ <div id="preloader"></div>
+ <div id="turnToLandscapeMessage">
+  <p>Please turn your phone to landscape orientation for the best experience.</p>
+</div>
+  
+  <div  class="section" data-label="Home" id="home">
+  
+  <div class="glitch" data-text="Welcome">Welcome</div>
+   <div class="intro" >T O  </div> 
+  <div class="glitch" id="intext1"  data-text="My Digital "> My Digital </div>
+  <div class="glitch" id="intext2"  data-text=" Canvas">Canvas</div>
+
+
+ <div class="me">I'm Lamita, a passionate   
+      <span class="word code">coder.</span>
+      <span class="word design">designer.</span>
+      </div>
+ <div class="gradient" > I aspire to turn my ideas <br> into digital masterpieces.</div> 
+
+    </div>
+
+
+
+
+  <div class="section" id="about" data-label="About">
+    <div class="aboutme">
+    <div class="hello "><p class="light">Hello,</p> I'm <p class="light">Lamita,</p> a  <p class="light">Creative Computing</p>  student at the University of the Arts London.
+      <br> My journey combines a passion for <p class="light">design</p>  with a love for <p class="light">coding</p>.</div>
+      <div class="one">This unique <p class="light">blend of disciplines</p> fuels my curiosity, providing me with a <p class="light">versatile</p> skill set to approach design challenges from  both an <p class="light">artistic and technical</p> perspective.</div>
+      <div class="two">I believe in the power of <p class="light">creativity</p>  to inspire and transform, guiding my continuous <p class="light">exploration</p>  of new technologies, design trends, and coding techniques. </div>
+     <div class="three"> It's not just about creating; it's about pushing boundaries, <p class="light">experimenting</p> with possibilities, and discovering the beauty in the <p class="light">intersection of art and technology</p> .</div> 
+     <div class="four">In my <p class="light"> free time</p> , I practice Muay Thai, lift weights, and play the drums.</div> 
+    </div>
+</div>
+ 
+  <div class="section" id="projects" data-label="Portfolio">
+
+<div class="flex-container">
+
+<div class="hci" onclick="redirectTo('hci.html')" role="button">HCI</div>
+<div class="web"  onclick="redirectTo('web.html')" role="button">WEB</div> 
+<div class="python" onclick="redirectTo('python.html')" role="button">PYTHON</div>
+<div class="physical" onclick="redirectTo('physical.html')" role="button">ARDUINO</div>
+<div class="processing" onclick="redirectTo('processing.html')" role="button">PROCESSING</div>
+
+</div>
+  </div>
+
+
+  <div class="section" id="contact" data-label="Contact">
+    <h1 id="show-form">Get in touch!</h1>
+    <form id="contact-form">
+      <div class="first">
+      <label for="name">
+        <p class="light">hello,</p>
+        my name is </label> <input type="text" name="user_name" placeholder="Your name" class="input" required>
+      <label class="this" for="email"> <p class="light">,</p>and my email is</label>
+      <input type="email" name="user_email"  placeholder="Your email " class="input" required>
+    <button class="next"  aria-label="Proceed to the next step"><i class="fa-solid fa-angle-right"></i></button></div>
+
+    <div class="second">  
+      <button class="back" aria-label="Go back to the previous step"> <i class="fa-solid fa-angle-left"></i></button>
+      <textarea name="message" placeholder="What's on your mind!?" required></textarea>
+      <input type="submit" value="Send" class="submit">
+    </div>
+    <div class="third"><p class="light">Your Message is Sent! </p></div>
+  </form>
+
+  <div class="social">
+    <i class="fa fa-linkedin"  role="button"> 
+    <div class="linkedin" aria-hidden="true" >Lamita Farah</div>  </i>
+    <i class="fa fa-envelope"   role="button">   
+   <div class="email-address" aria-hidden="true">lamitafarah4321@gmail.com</div></i>  
+  </div>
+  </div>
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+      (function() {
+          // https://dashboard.emailjs.com/admin/account
+          emailjs.init('0wcIJQGE6Y0F8bH5H');
+      })();
+  </script>
+ 
+    <script>
+
+
+//code for preloader 
+var loader=document.getElementById('preloader');
+window.addEventListener('load', function(){
+  loader.style.display='none';
+})
+
+
+//code for the animation on intersection 
+document.addEventListener('DOMContentLoaded', function () {
+  const textElement = document.querySelector('.aboutme');
+  const projects = document.querySelector('.flex-container');
+  const form = document.getElementById('show-form');
+  const social = document.querySelector('.social');
+
+  const options = {
+    root: null, // Use the viewport as the root
+    threshold: 0.01, 
+  };
+
+  const observer = new IntersectionObserver(function (entries, observer) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        textElement.classList.add('visible');
+        textElement.style.animation = 'fadeIn 1s ease-in-out forwards';
+
+        projects.classList.add('visible');
+        projects.style.animation = 'showContent 2s 1s ease-in-out 1 forwards';
+        
+        form.classList.add('visible');
+        form.style.animation = 'showContent 4s 1s ease-in-out 1 forwards';
+      } else {
+        textElement.classList.remove('visible');
+        textElement.style.animation = '';
+
+        projects.classList.remove('visible');
+        projects.style.animation = '';
+        
+        form.classList.add('visible');
+        form.style.animation = '';
+      }
+    });
+  }, options);
+
+  observer.observe(textElement);
+});
+
+
+//code for animating the words "coder,designer" at the home page
+
+var words = document.getElementsByClassName('word');
+var wordArray = [];
+var currentWord = 0;
+
+words[currentWord].style.opacity = 1;
+for (var i = 0; i < words.length; i++) {
+  splitLetters(words[i]);
+}
+
+function changeWord() {
+  var cw = wordArray[currentWord];
+  var nw = currentWord == words.length-1 ? wordArray[0] : wordArray[currentWord+1];
+  for (var i = 0; i < cw.length; i++) {
+    animateLetterOut(cw, i);
+  }
+  
+  for (var i = 0; i < nw.length; i++) {
+    nw[i].className = 'letter behind';
+    nw[0].parentElement.style.opacity = 1;
+    animateLetterIn(nw, i);
+  }
+  
+  currentWord = (currentWord == wordArray.length-1) ? 0 : currentWord+1;
+}
+
+function animateLetterOut(cw, i) {
+  setTimeout(function() {
+    cw[i].className = 'letter out';
+  }, i*80);
+}
+
+function animateLetterIn(nw, i) {
+  setTimeout(function() {
+    nw[i].className = 'letter in';
+  }, 340+(i*80));
+}
+
+function splitLetters(word) {
+  var content = word.innerHTML;
+  word.innerHTML = '';
+  var letters = [];
+  for (var i = 0; i < content.length; i++) {
+    var letter = document.createElement('span');
+    letter.className = 'letter';
+    letter.innerHTML = content.charAt(i);
+    word.appendChild(letter);
+    letters.push(letter);
+  }
+  
+  wordArray.push(letters);
+}
+
+changeWord();
+setInterval(changeWord, 4000);
+
+
+
+//code for the contact form to be sent 
+
+
+window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('service_bcdrw9f', 'contact_form', this)
+                    .then(function() {
+                        console.log('SUCCESS!');
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }  
+     
+  
+
+//code for the buttons and pages of the form
+
+  document.getElementById('contact-form').classList.add('active');
+  const first = document.querySelector(".first");
+  const second = document.querySelector(".second");
+  first.style.display = "flex";
+  second.style.display = "none";
+
+        document.addEventListener("DOMContentLoaded", function () {
+        const first = document.querySelector(".first");
+        const second = document.querySelector(".second");
+        const third = document.querySelector(".third");
+        const next= document.querySelector(".next")
+        const back= document.querySelector(".back")
+        const submit= document.querySelector(".submit")
+        
+
+        
+        next.addEventListener("click", function (e) {
+          e.preventDefault();
+          first.style.display = "none";
+          second.style.display = "flex";
+        });
+        back.addEventListener("click", function (e) {
+          e.preventDefault();
+          first.style.display = "flex";
+          second.style.display = "none";
+        });
+        submit.addEventListener("click", function (e) {
+          e.preventDefault();
+          first.style.display = "none";
+          second.style.display = "none";
+          third.style.display= "flex";
+        });
+        })
+
+//code for the navigation bar
+document.addEventListener('DOMContentLoaded', function () {
+  function activateNavigation() {
+    const sections = document.querySelectorAll(".section");
+    const navContainer = document.createElement("nav");
+
+    const navItems = Array.from(sections).map((section) => {
+      return `
+        <div class="nav-item" data-for-section="${section.id}">
+          <span class="nav-label">${section.dataset.label}</span>
+        </div>
+      `;
+    });
+
+    navContainer.classList.add("nav");
+    navContainer.innerHTML = navItems.join("");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSection = entries.find((entry) => entry.isIntersecting);
+
+        if (visibleSection) {
+          document.querySelectorAll(".nav-label").forEach((navLabel) => {
+            navLabel.classList.remove("nav-label-selected");
+          });
+
+          document
+            .querySelector(`.nav-item[data-for-section="${visibleSection.target.id}"] .nav-label`)
+            .classList.add("nav-label-selected");
+            
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    document.body.appendChild(navContainer);
+
+    const navLabels = document.querySelectorAll('.nav-label');
+
+    navLabels.forEach((label) => {
+      label.addEventListener('click', function () {
+        const sectionId = this.parentElement.dataset.forSection;
+        window.location.href = `#${sectionId}`;
+      });
+    });
+  }
+
+ 
+
+  activateNavigation();
+});
+
+// code to open the url page on a new tab
+function redirectTo(url) {
+  window.open(url, '_blank');
+  }
+
+
+//code for the background animation
+  var xoff = 0;
+        var yoff = 10;
+        var samples = 300;
+        var easing = 0.01;
+        var globalX = 100;
+        var globalY = 100;
+        
+
+        function setup() {
+            var canvas = createCanvas(windowWidth,4* windowHeight);
+            // canvas.parent('home');
+            canvas.style('display', 'block'); // Make sure the canvas is displayed as a block element
+            canvas.position(0, 0); // Position the canvas at the top-left corner
+            canvas.parent(document.body);
+            stroke(68,215,168,30);
+            strokeWeight(1);
+            frameRate(20);
+           
+        }
+        function windowResized() {
+    // Resize the canvas when the window is resized
+    resizeCanvas(windowWidth,4* windowHeight);
+}
+
+        function draw() {
+            
+            background(0);
+
+            var targetX = mouseX;
+            var dx = targetX - globalX;
+            globalX += dx * easing;
+
+            var targetY = mouseY;
+            var dy = targetY - globalY;
+            globalY += dy * easing;
+
+
+
+            for (i = 50; i < samples; i++) {
+             
+                var xnoise = noise(xoff + (i / samples));
+                var ynoise = noise(yoff + (i / samples));
+                var x = map(xnoise, 0, 1, globalX - 400, globalX + 400);
+                var y = map(ynoise, 0, 1, globalY - 400, globalY + 400);
+
+                ellipse(x + i / 10, y + i / 10, 2 * i + 10, 2 * i + 10);
+  
+                fill(10 - i / 10, 10 - i / 10);
+            }
+          
+          
+
+            xoff += 0.006;
+            yoff -= 0.006;
+        }
+
+//check if it is a mobile device, check the orientation, if landscape --> open website
+//if not landscape show the MESSAGE
+//detect if the phone has been turned , if yes --> open website
+
+        function checkOrientation() {
+    // Check if the device is a phone
+    var isMobile = isMobileDevice();
+
+    if (isMobile) {
+        // Check the window width
+        var windowWidth = window.innerWidth;
+
+        // Check if the phone is in landscape orientation
+        var isPhoneInLandscape = window.matchMedia("(max-width: 1023px) and (orientation: landscape)").matches;
+
+        // Get the turnToLandscapeMessage element
+        var turnToLandscapeMessage = document.getElementById('turnToLandscapeMessage');
+        var home = document.getElementById('home');
+        var about = document.getElementById('about');
+        var projects = document.getElementById('projects');
+        var contact = document.getElementById('contact');
+        var nav= document.getElementById('nav');
+
+        if (!isPhoneInLandscape) {
+            // 1. Display #turnToLandscape
+            turnToLandscapeMessage.style.display = 'block';
+
+            // 2. Remove the overflow-y from the body
+           
+            document.documentElement.style.overflowY = 'hidden';
+            home.style.display = 'none';
+            about.style.display = 'none';
+            projects.style.display = 'none';
+            contact.style.display = 'none';
+            nav.style.display = 'none';
+  
+            // 3. Check if the user changed device orientation to landscape
+            window.addEventListener("orientationchange", function () {
+                if (window.orientation === 0 || window.orientation === 180) {
+                    // 4. If in landscape, display the website, add the overflow-y again, remove #turnToLandscape
+                    document.documentElement.style.overflowY = 'visible';
+                    document.documentElement.style.overflowX = 'hidden';
+                    turnToLandscapeMessage.style.display = 'none';
+                  
+                }
+            });
+        } else {
+            // If the phone is in landscape from the beginning, display the website
+            document.documentElement.style.overflowY = 'visible';
+            document.documentElement.style.overflowX = 'hidden';
+            turnToLandscapeMessage.style.display = 'none';
+            home.style.display = 'block';
+            about.style.display = 'block';
+            projects.style.display = 'block';
+            contact.style.display = 'block';
+            nav.style.display = 'block';
+
+        }
+    } else {
+        // Code to run if the device is not a mobile device
+        var turnToLandscapeMessage = document.getElementById('turnToLandscapeMessage');
+        turnToLandscapeMessage.style.display = 'none';
+        document.documentElement.style.overflowY = 'visible';
+        console.log("This is not a mobile device.");
+    }
+}
+
+// Check the orientation when the page loads and add an event listener for changes
+window.addEventListener("load", checkOrientation);
+window.addEventListener("resize", checkOrientation);
+
+function isMobileDevice() {
+    return /Mobi|Android/i.test(navigator.userAgent);
+}
+
+      </script>    
+</body>
+</html>

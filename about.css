@@ -1,0 +1,62 @@
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes showContent{
+    from{
+        transform: translateY(-30px);
+        filter: blur(10px);
+    }to{
+        transform: translateY(0);
+        opacity: 1;
+        filter: blur(0px);
+    }
+} 
+  .visible {
+    opacity: 1;
+  }
+.light{
+    color: #f57fac;
+    font-weight: 100;
+    font-size: 2.3vw;
+    display: inline-block;
+  }
+  
+
+  .aboutme{
+    color:white;
+    z-index:1000;
+    position: relative;
+    top:2vh;
+    left:8vw;
+    display: grid;
+    grid-template-columns: repeat(1, 3fr);
+    gap: 1vw; 
+    font-size: 1.3vw;
+    width:64vw;
+
+  }
+
+  .aboutme > div {
+    padding: 1vw;
+  
+    /* border: 1px solid #ccc; */
+    box-sizing: border-box;
+  }
+
+  .aboutme .hello{
+    width:64vw;
+}
+  .one{
+    left:10vw;
+  }
+  .three{
+    left:10vw;
+  }
+
+
+    
